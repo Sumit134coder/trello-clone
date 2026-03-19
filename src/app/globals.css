@@ -80,9 +80,28 @@ body {
   }
 }
 
+
+
+/* -------animations---------- */
 .form_error_animate {
   animation: shake 200ms ease-in-out 2;
 }
+
+.view_password_animation{
+  animation : scale-in 500ms ease-in-out
+}
+
+@keyframes scale-in{
+  from{
+    transform: scale(0.3) translateY(-2rem);
+    opacity : 0.5;
+  }
+  to{
+    transform: scale(1) translate(0px);
+    opacity : 1;
+  }
+}
+
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-6px); }

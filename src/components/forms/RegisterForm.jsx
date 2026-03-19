@@ -110,6 +110,8 @@ const RegisterForm = () => {
       <CheckboxInput
         id="terms"
         name="terms"
+        {...register("terms")}
+        errorMsg={errors?.terms?.message}
         required
         label={
           <>

@@ -48,7 +48,7 @@ const PasswordInput = ({
           className="absolute z-10 inset-y-0 right-4 cursor-pointer"
           onClick={togglePassword}
         >
-          {showPassword ? <EyeClosed /> : <Eye />}
+          {showPassword ? <EyeClosed className="view_password_animation"/> : <Eye className="view_password_animation"/>}
         </button>
       </div>
       {hint && (
