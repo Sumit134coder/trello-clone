@@ -7,19 +7,12 @@
 
   /* -----COLORS---- */
   /* primary colors */
- 
-  --color-primary-500: #222831;
 
-  /* secondary colors */
- --color-secondary-500 : #393E46;
+  --color-primary-500: #0f0e0c;
+  --color-secondary-500: #1a1814;
+  --color-text-500: #d4c5a9;
 
-  /* tertiary colors */
-  --color-tertiary-500: #948979;
-
-  --color-text-light-500 : #DFD0B8;
-
-
-  /* ---font-weight--- */ 
+  /* ---font-weight--- */
   --font-weight-400: 400;
   --font-weight-500: 500;
   --font-weight-600: 600;
@@ -42,31 +35,29 @@
   --text-large-1000: 96px;
 }
 
-
 body {
   background: var(--background);
   color: var(--foreground);
 }
 
-
-@layer components{
-  .link{
-    @apply transition-colors duration-150
+@layer components {
+  .link {
+    @apply transition-colors duration-150;
   }
 
-  .link_dark{
-    @apply text-gray-300 hover:text-white
+  .link_dark {
+    @apply text-gray-300 hover:text-white;
   }
 
-  .btn{
-    @apply transition-colors transition-transform duration-500 inline-block font-bold text-sm tracking-widest uppercase px-8 py-4
+  .btn {
+    @apply transition-colors transition-transform duration-500 inline-block font-bold text-sm tracking-widest uppercase px-8 py-4;
   }
 
-  .btn_primary{
-    @apply bg-primary-500 text-tertiary-500 hover:bg-text-light-500
+  .btn_primary {
+    @apply bg-primary-500 text-text-500 hover:bg-text-500;
   }
 
-  .btn_light{
-    @apply border border-primary-500 hover:bg-primary-500 hover:text-tertiary-500 text-secondary-500 
+  .btn_light {
+    @apply border border-primary-500 hover:bg-primary-500 hover:text-text-500 text-secondary-500;
   }
 }

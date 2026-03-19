@@ -11,7 +11,7 @@ const Hero = () => {
 
         {/* Giant headline */}
         <h1
-          className="font-black uppercase leading-[0.88] tracking-tight text-[clamp(4rem,14vw,14rem)] text-text-light-500 mb-12"
+          className="font-black uppercase leading-[0.88] tracking-tight text-[clamp(4rem,14vw,14rem)] text-text-500 mb-12"
           style={{ fontStretch: "condensed" }}
         >
           Work

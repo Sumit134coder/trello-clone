@@ -8,7 +8,7 @@ const Problem = () => {
           <p className="text-xs tracking-[0.3em] uppercase text-text-secondary-500  mb-4">
             01 — The Problem
           </p>
-          <h2 className="text-[clamp(2.5rem,6vw,6rem)] font-black uppercase leading-none tracking-tight text-text-light-500">
+          <h2 className="text-[clamp(2.5rem,6vw,6rem)] font-black uppercase leading-none tracking-tight text-text-500">
             Chaos
             <br />
             <span className="text-text-secondary-500 ">is the</span>
@@ -43,7 +43,7 @@ const Problem = () => {
                 {item.num}
               </span>
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-text-light-500 mb-3 group-hover:text-primary-500 transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-text-500 mb-3 group-hover:text-primary-500 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-text-secondary-500  leading-relaxed font-light">

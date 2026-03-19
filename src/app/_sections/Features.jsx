@@ -56,7 +56,7 @@ const Features = () => {
                   <span className="text-primary-500 text-lg shrink-0">
                     {item.num}
                   </span>
-                  <span className="text-lg md:text-2xl font-semibold text-text-light-500 group-hover:text-primary-500 transition-colors">
+                  <span className="text-lg md:text-2xl font-semibold text-text-500 group-hover:text-primary-500 transition-colors">
                     {item.feature}
                   </span>
                 </div>

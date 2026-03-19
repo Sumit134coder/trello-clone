@@ -43,7 +43,7 @@ const Collaboration = () => {
               key={item.title}
               className="border border-white/10 p-8 flex flex-col gap-4 hover:border-primary-500/30 transition-colors"
             >
-              <h3 className="text-xl md:text-2xl font-bold text-text-light-500">
+              <h3 className="text-xl md:text-2xl font-bold text-text-500">
                 {item.title}
               </h3>
               <p className="text-secondary-500 font-light leading-relaxed">
