@@ -1,10 +1,15 @@
-import React from "react";
 import Link from "next/link";
 import ForgotPasswordForm from "@/components/forms/ForgotPasswordForm";
 import ResetPasswordForm from "@/components/forms/ResetPasswordForm";
-import { routes } from "@/constants";
+import { metaData, routes } from "@/constants";
 
-const ForgotPassword = () => {
+export const metadata = metaData.forgotPassword
+
+const ForgotPassword = async ({searchParams}) => {
+
+  const queryParams = await searchParams;
+  const forgotToken = queryParams.token;
+
   return (
     <div className="min-h-screen bg-primary-500 text-text-500 flex">
       {/* ── LEFT PANEL — Branding ── */}
@@ -91,8 +96,7 @@ const ForgotPassword = () => {
           </header>
 
           {/* ── FORGOT PASSWORD FORM ── */}
-          <ForgotPasswordForm />
-          {/* <ResetPasswordForm /> */}
+         { forgotToken ? <ResetPasswordForm />:  <ForgotPasswordForm />}
 
           {/* ── Divider ── */}
           <div

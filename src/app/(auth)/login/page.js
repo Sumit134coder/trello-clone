@@ -1,6 +1,9 @@
 import LoginForm from "@/components/forms/LoginForm";
-import { routes } from "@/constants";
+import { metaData, routes } from "@/constants";
 import Link from "next/link";
+
+
+export const metadata = metaData.login
 
 const Login = () => {
   return (
