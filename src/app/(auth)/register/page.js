@@ -282,7 +282,7 @@ form_input input_dark
             <Link
               href="/login"
               className="
-                btn btn_primary shrink-0 
+                btn btn_primary_outline shrink-0 
                 font-mono text-[0.65rem] tracking-[0.2em] uppercase
                 px-5 py-3
                

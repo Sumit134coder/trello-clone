@@ -203,7 +203,7 @@ const Login = () => {
             <Link
               href="/register"
               className="
-                 btn btn_primary inline-block self-start
+                 btn btn_primary_outline inline-block self-start
                 px-6 py-3 text-[0.65rem] tracking-[0.2em]
               "
             >

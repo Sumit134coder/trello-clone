@@ -25,7 +25,7 @@ export const FinalCTA = () => {
 
       <a
         href="/signup"
-        className="inline-block bg-primary-500 text-text-500 font-black text-sm tracking-[0.2em] uppercase px-12 py-5 hover:bg-text-500 hover:scale-105 transition-all duration-200"
+        className="inline-block  font-black text-sm tracking-[0.2em] uppercase px-12 py-5  hover:scale-105 transition-all duration-200 btn_primary"
       >
         Create Your Free Board →
       </a>
