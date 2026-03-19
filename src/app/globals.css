@@ -10,7 +10,9 @@
 
   --color-primary-500: #0f0e0c;
   --color-secondary-500: #1a1814;
+  --color-secondary-600: #1e1c18;
   --color-text-500: #d4c5a9;
+  --color-text-900: #e8dcc8;
 
   /* ---font-weight--- */
   --font-weight-400: 400;
@@ -46,7 +48,7 @@ body {
   }
 
   .link_dark {
-    @apply text-gray-300 hover:text-white;
+    @apply text-text-500 hover:text-text-900;
   }
 
   .btn {
