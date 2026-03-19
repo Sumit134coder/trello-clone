@@ -3,7 +3,7 @@ import React from "react";
 const Problem = () => {
   return (
     <section className="px-6 md:px-12 py-28 md:py-40 border-b border-white/10">
-      <div className="max-w-[1400px] mx-auto w-full grid md:grid-cols-[1fr_2fr] gap-16 items-start">
+      <div className="max-w-350 mx-auto w-full grid md:grid-cols-[1fr_2fr] gap-16 items-start">
         <div>
           <p className="text-xs tracking-[0.3em] uppercase text-text-secondary-500  mb-4">
             01 — The Problem

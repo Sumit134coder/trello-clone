@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     <section className="min-h-screen flex flex-col justify-end px-6 md:px-12 pt-40 pb-20 border-b border-white/10">
-      <div className="max-w-[1400px] mx-auto w-full">
+      <div className="max-w-350 mx-auto w-full">
         {/* Eyebrow */}
         <p className="text-xs tracking-[0.3em] uppercase text-primary-500 mb-8">
           Task Management, Reimagined

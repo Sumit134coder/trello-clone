@@ -3,7 +3,7 @@ import React from "react";
 const Benefits = () => {
   return (
     <section className="px-6 md:px-12 py-28 md:py-40 bg-primary-500 text-text-500 border-b border-[#0c0c0c]/20">
-      <div className="max-w-[1400px] mx-auto w-full">
+      <div className="max-w-350 mx-auto w-full">
         <p className="text-xs tracking-[0.3em] uppercase text-text-500 mb-6">
           05 — Productivity Benefits
         </p>
@@ -36,7 +36,7 @@ const Benefits = () => {
                 {item.stat}
               </span>
               <h3 className="text-2xl md:text-3xl font-bold">{item.title}</h3>
-              <p className="texttertiary-500 font-light leading-relaxed">
+              <p className="text-light-900 font-light leading-relaxed">
                 {item.body}
               </p>
             </article>

@@ -6,7 +6,7 @@ const HowItWorks = () => {
       id="how"
       className="px-6 md:px-12 py-28 md:py-40 bg-text-500 text-[#0c0c0c] border-b border-[#0c0c0c]/10"
     >
-      <div className="max-w-[1400px] mx-auto w-full">
+      <div className="max-w-350 mx-auto w-full">
         <p className="text-xs tracking-[0.3em] uppercase text-primary-500 mb-6">
           02 — The Solution
         </p>

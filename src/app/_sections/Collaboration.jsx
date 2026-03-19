@@ -14,7 +14,7 @@ const Collaboration = () => {
         SOON
       </span>
 
-      <div className="max-w-[1400px] mx-auto w-full relative z-10">
+      <div className="max-w-350 mx-auto w-full relative z-10">
         <p className="text-xs tracking-[0.3em] uppercase text-text-secondary-500  mb-6">
           04 — Collaboration / Coming Soon
         </p>

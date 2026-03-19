@@ -100,13 +100,7 @@ const Register = () => {
                   required
                   placeholder="Ada"
                   className="
-                    w-full bg-secondary-500 border border-text-500/12
-                    text-text-500 placeholder:text-text-500/20
-                    px-4 py-4 text-sm font-light rounded-none
-                    outline-none
-                    focus:border-text-500/50 focus:bg-secondary-500/80
-                    hover:border-text-500/22
-                    transition-all duration-200
+                    form_input input_dark
                   "
                 />
               </div>
@@ -126,13 +120,7 @@ const Register = () => {
                   required
                   placeholder="Lovelace"
                   className="
-                    w-full bg-secondary-500 border border-text-500/12
-                    text-text-500 placeholder:text-text-500/20
-                    px-4 py-4 text-sm font-light rounded-none
-                    outline-none
-                    focus:border-text-500/50 focus:bg-secondary-500/80
-                    hover:border-text-500/22
-                    transition-all duration-200
+                   form_input input_dark
                   "
                 />
               </div>
@@ -158,13 +146,7 @@ const Register = () => {
                   required
                   placeholder="ada_lovelace"
                   className="
-                    w-full bg-secondary-500 border border-text-500/12
-                    text-text-500 placeholder:text-text-500/20
-                    pl-8 pr-4 py-4 text-sm font-light rounded-none
-                    outline-none
-                    focus:border-text-500/50 focus:bg-secondary-500/80
-                    hover:border-text-500/22
-                    transition-all duration-200
+                    form_input input_dark
                   "
                 />
               </div>
@@ -186,13 +168,7 @@ const Register = () => {
                 required
                 placeholder="ada@example.com"
                 className="
-                  w-full bg-secondary-500 border border-text-500/12
-                  text-text-500 placeholder:text-text-500/20
-                  px-5 py-4 text-sm font-light rounded-none
-                  outline-none
-                  focus:border-text-500/50 focus:bg-secondary-500/80
-                  hover:border-text-500/22
-                  transition-all duration-200
+form_input input_dark
                 "
               />
             </div>
@@ -214,13 +190,7 @@ const Register = () => {
                 minLength={8}
                 placeholder="Min. 8 characters"
                 className="
-                  w-full bg-secondary-500 border border-text-500/12
-                  text-text-500 placeholder:text-text-500/20
-                  px-5 py-4 text-sm font-light rounded-none
-                  outline-none
-                  focus:border-text-500/50 focus:bg-secondary-500/80
-                  hover:border-text-500/22
-                  transition-all duration-200
+form_input input_dark
                 "
               />
               {/* Password strength hint */}
@@ -245,13 +215,7 @@ const Register = () => {
                 required
                 placeholder="Repeat your password"
                 className="
-                  w-full bg-secondary-500 border border-text-500/12
-                  text-text-500 placeholder:text-text-500/20
-                  px-5 py-4 text-sm font-light rounded-none
-                  outline-none
-                  focus:border-text-500/50 focus:bg-secondary-500/80
-                  hover:border-text-500/22
-                  transition-all duration-200
+form_input input_dark
                 "
               />
             </div>
@@ -298,13 +262,7 @@ const Register = () => {
             <button
               type="submit"
               className="
-                w-full bg-text-500 text-primary-500
-                font-black text-xs tracking-[0.25em] uppercase
-                px-8 py-5 rounded-none
-                hover:opacity-90
-                active:scale-[0.98]
-                transition-all duration-150
-                cursor-pointer
+                btn btn_light
               "
             >
               Create My Account →
@@ -324,12 +282,10 @@ const Register = () => {
             <Link
               href="/login"
               className="
-                shrink-0 border border-text-500/25 text-text-500/70
+                btn btn_primary shrink-0 
                 font-mono text-[0.65rem] tracking-[0.2em] uppercase
                 px-5 py-3
-                hover:border-text-500/60 hover:text-text-500
-                hover:bg-text-500/5
-                transition-all duration-200
+               
               "
             >
               Sign In →
