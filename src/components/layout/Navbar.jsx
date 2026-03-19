@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { routes } from "@/constants";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,14 +36,14 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link href="/login" className="link link_dark">
+            <Link href={routes.auth.login} className="link link_dark">
               Login
             </Link>
           </li>
 
           <li>
             <Link
-              href="/signup"
+              href={routes.auth.register}
               className="w-full bg-[#d4c5a9] text-[#0f0e0c]
                 font-black text-xs tracking-[0.25em] uppercase
                 px-8 py-5
@@ -80,12 +81,12 @@ export default function Navbar() {
             </li>
 
             <li>
-              <Link href="/login">Login</Link>
+              <Link href={routes.auth.login}>Login</Link>
             </li>
 
             <li>
               <Link
-                href="/signup"
+                href={routes.auth.register}
                 className="bg-blue-600 text-white px-4 py-2 rounded-md w-fit"
               >
                 Get Started

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { routes } from './constants';
 
 export function proxy(request) {
   const authToken = request.cookies.get('authToken')?.value;
@@ -19,7 +20,7 @@ export function proxy(request) {
     return NextResponse.next();
   }
 
-  const publicPaths = ['/' , '/login' , '/register']
+  const publicPaths = [routes.home , routes.auth.login , routes.auth.forgotPassword, routes.auth.register]
 
   const isPublicPath = publicPaths.includes(currentPath);
 

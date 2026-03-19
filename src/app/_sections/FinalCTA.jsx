@@ -1,3 +1,4 @@
+import { routes } from "@/constants";
 import React from "react";
 
 export const FinalCTA = () => {
@@ -24,7 +25,7 @@ export const FinalCTA = () => {
       </p>
 
       <a
-        href="/signup"
+        href={routes.auth.register}
         className="inline-block  font-black text-sm tracking-[0.2em] uppercase px-12 py-5  hover:scale-105 transition-all duration-200 btn_primary"
       >
         Create Your Free Board →

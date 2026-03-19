@@ -1,3 +1,5 @@
+import LoginForm from "@/components/forms/LoginForm";
+import { routes } from "@/constants";
 import Link from "next/link";
 
 const Login = () => {
@@ -57,7 +59,7 @@ const Login = () => {
             <p className="text-text-500/40 text-sm font-light">
               Don&apos;t have an account?{" "}
               <Link
-                href="/register"
+                href={routes.auth.register}
                 className="text-text-500 underline underline-offset-4 decoration-text-500/30 hover:decoration-text-500 transition-all"
               >
                 Create one — it&apos;s free
@@ -66,111 +68,7 @@ const Login = () => {
           </header>
 
           {/* ── LOGIN FORM ── */}
-          <form
-            method="POST"
-            action="/api/auth/login"
-            noValidate
-            aria-label="Sign in form"
-            className="flex flex-col gap-7"
-          >
-            {/* Email / Username */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="identifier"
-                className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40"
-              >
-                Email or Username
-              </label>
-              <input
-                id="identifier"
-                name="identifier"
-                type="text"
-                autoComplete="username email"
-                required
-                placeholder="you@example.com"
-                className="
-                  w-full bg-secondary-500 border border-text-500/12
-                  text-text-500 placeholder:text-text-500/20
-                  px-5 py-4 text-sm font-light
-                  outline-none
-                  focus:border-text-500/50 focus:bg-secondary-600
-                  hover:border-text-500/22
-                  transition-all duration-200
-                  rounded-none
-                "
-              />
-            </div>
-
-            {/* Password */}
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40"
-                >
-                  Password
-                </label>
-                <Link
-                  href="/forgot-password"
-                  className="font-mono text-[0.6rem] tracking-widest uppercase text-text-500/30 hover:text-text-500 transition-colors underline underline-offset-4 decoration-transparent hover:decoration-text-500/40"
-                >
-                  Forgot password?
-                </Link>
-              </div>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                placeholder="••••••••••"
-                className="
-                  w-full bg-secondary-500 border border-text-500/12
-                  text-text-500 placeholder:text-text-500/20
-                  px-5 py-4 text-sm font-light
-                  outline-none
-                  focus:border-text-500/50 focus:bg-secondary-600
-                  hover:border-text-500/22
-                  transition-all duration-200
-                  rounded-none
-                "
-              />
-            </div>
-
-            {/* Remember me */}
-            <div className="flex items-center gap-3">
-              <input
-                id="remember"
-                name="remember"
-                type="checkbox"
-                className="
-                  w-4 h-4 rounded-none border border-text-500/20
-                  bg-secondary-500 accent-text-500
-                  cursor-pointer
-                "
-              />
-              <label
-                htmlFor="remember"
-                className="font-mono text-[0.65rem] tracking-widest uppercase text-text-500/30 cursor-pointer select-none"
-              >
-                Keep me signed in
-              </label>
-            </div>
-
-            {/* Divider */}
-            <div
-              className="border-t border-text-500/8 mt-1"
-              role="separator"
-            />
-
-            {/* Submit */}
-            <button
-              type="submit"
-              className="btn btn_light"
-            >
-              Sign In →
-            </button>
-          </form>
+          <LoginForm />
 
           {/* ── OR separator ── */}
           <div
@@ -201,7 +99,7 @@ const Login = () => {
               Set up your workspace in under a minute. No credit card required.
             </p>
             <Link
-              href="/register"
+              href={routes.auth.register}
               className="
                  btn btn_primary_outline inline-block self-start
                 px-6 py-3 text-[0.65rem] tracking-[0.2em]
