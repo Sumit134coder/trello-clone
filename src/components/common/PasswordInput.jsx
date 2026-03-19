@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";
 import Link from "next/link";
+import FormError from "./FormError";
 
 const PasswordInput = ({
   id,
   inputClass,
   showForgotLink = false,
   label,
+  errorMsg,
   hint = "",
   ...inputProps
 }) => {
@@ -54,6 +56,7 @@ const PasswordInput = ({
           {hint}
         </p>
       )}
+      {errorMsg && <FormError message={errorMsg} />}
     </div>
   );
 };

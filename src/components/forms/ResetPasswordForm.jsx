@@ -1,15 +1,29 @@
-"use client"
+"use client";
 
 import PasswordInput from "../common/PasswordInput";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { confirmPasswordSchema } from "@/lib/schemas/yup";
 
 const ResetPasswordForm = () => {
+  const {
+    formState: { errors },
+    handleSubmit,
+    register,
+  } = useForm({
+    resolver: yupResolver(confirmPasswordSchema),
+  });
+
+  const handleConfirmPasswordSubmit = (values) => {
+    console.log(values);
+  };
+
   return (
     <form
-      method="POST"
-      action="/api/auth/register"
       noValidate
       aria-label="Reset password form"
       className="flex flex-col gap-6"
+      onSubmit={handleSubmit(handleConfirmPasswordSubmit)}
     >
       {/* Email */}
       <PasswordInput
@@ -20,6 +34,8 @@ const ResetPasswordForm = () => {
         minLength={8}
         placeholder="Min. 8 characters"
         hint="Use 8+ characters, mix letters &amp; numbers"
+        {...register("password")}
+        errorMsg={errors?.password?.message}
       />
 
       <PasswordInput
@@ -30,6 +46,8 @@ const ResetPasswordForm = () => {
         autoComplete="new-password"
         required
         placeholder="Repeat your password"
+        {...register("confirmPassword")}
+        errorMsg={errors?.confirmPassword?.message}
       />
 
       {/* Divider */}

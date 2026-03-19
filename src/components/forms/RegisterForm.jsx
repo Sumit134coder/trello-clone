@@ -4,15 +4,29 @@ import FormInput from "../common/FormInput";
 import CheckboxInput from "../common/CheckboxInput";
 import PasswordInput from "../common/PasswordInput";
 import Link from "next/link";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { registerSchema } from "@/lib/schemas/yup";
 
 const RegisterForm = () => {
+  const {
+    formState: { errors },
+    register,
+    handleSubmit,
+  } = useForm({
+    resolver: yupResolver(registerSchema),
+  });
+
+  const handleLoginSubmit = (data) => {
+    console.log({ data });
+  };
+
   return (
     <form
-      method="POST"
-      action="/api/auth/register"
       noValidate
       aria-label="Create account form"
       className="flex flex-col gap-6"
+      onSubmit={handleSubmit(handleLoginSubmit)}
     >
       {/* Full name row */}
       <div className="grid grid-cols-2 gap-4">
@@ -24,6 +38,8 @@ const RegisterForm = () => {
           autoComplete="given-name"
           required
           placeholder="Ada"
+          {...register("firstName")}
+          errorMsg={errors?.firstName?.message}
         />
 
         <FormInput
@@ -34,6 +50,8 @@ const RegisterForm = () => {
           autoComplete="given-name"
           required
           placeholder="Lovelace"
+          {...register("lastName")}
+          errorMsg={errors?.lastName?.message}
         />
       </div>
 
@@ -47,6 +65,8 @@ const RegisterForm = () => {
         autoComplete="username"
         required
         placeholder="ada_lovelace"
+        {...register("username")}
+        errorMsg={errors?.username?.message}
       />
 
       <FormInput
@@ -57,6 +77,8 @@ const RegisterForm = () => {
         autoComplete="email"
         required
         placeholder="ada@example.com"
+        {...register("email")}
+        errorMsg={errors?.email?.message}
       />
 
       {/* Email */}
@@ -64,10 +86,13 @@ const RegisterForm = () => {
         label="Password"
         id="password"
         autoComplete="new-password"
+        name="password"
         required
         minLength={8}
         placeholder="Min. 8 characters"
         hint="Use 8+ characters, mix letters &amp; numbers"
+        {...register("password")}
+        errorMsg={errors?.password?.message}
       />
 
       <PasswordInput
@@ -78,6 +103,8 @@ const RegisterForm = () => {
         autoComplete="new-password"
         required
         placeholder="Repeat your password"
+        {...register("confirmPassword")}
+        errorMsg={errors?.confirmPassword?.message}
       />
 
       <CheckboxInput
