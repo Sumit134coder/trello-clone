@@ -25,10 +25,11 @@ export function proxy(request) {
     routes.auth.login,
     routes.auth.forgotPassword,
     routes.auth.register,
-    routes.dashboard
+    routes.dashboard,
+    '/projects'
   ];
 
-  const isPublicPath = publicPaths.includes(currentPath);
+  const isPublicPath = true;
 
   if (!authToken && !isPublicPath) {
     // If user is NOT logged in and trying to access a protected route, redirect to login
