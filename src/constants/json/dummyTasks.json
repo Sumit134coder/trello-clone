@@ -1,0 +1,113 @@
+{
+  "yesterday": [
+    {
+      "id": 1,
+      "title": "Finalize color system tokens",
+      "description": "Document primary, secondary, and text tokens with usage examples across all components.",
+      "project": "Brand Redesign",
+      "status": "Done",
+      "assignees": [
+        { "initials": "AL", "name": "Ada Lovelace" },
+        { "initials": "SR", "name": "Sam Rivera" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Write rate-limiting middleware",
+      "description": "Implement per-user and per-route rate limiting for the v2 API gateway.",
+      "project": "API v2 Launch",
+      "status": "In Review",
+      "assignees": [
+        { "initials": "MK", "name": "Mo Khan" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "User interview synthesis",
+      "description": "Cluster findings from 6 onboarding interviews into actionable insight themes.",
+      "project": "Onboarding Flow",
+      "status": "In Progress",
+      "assignees": [
+        { "initials": "JD", "name": "Jordan Davis" },
+        { "initials": "AL", "name": "Ada Lovelace" }
+      ]
+    }
+  ],
+  "last7": [
+    {
+      "id": 4,
+      "title": "Auth token refresh logic",
+      "description": "Handle silent refresh and expiry edge cases without logging users out mid-session.",
+      "project": "API v2 Launch",
+      "status": "Done",
+      "assignees": [
+        { "initials": "AL", "name": "Ada Lovelace" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Push notification setup",
+      "description": "Integrate FCM for iOS and Android. Handle permission prompts and fallback states.",
+      "project": "Mobile App",
+      "status": "Done",
+      "assignees": [
+        { "initials": "TW", "name": "Taylor Wong" },
+        { "initials": "MK", "name": "Mo Khan" }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Empty state illustrations",
+      "description": "Design zero-data states for boards, task lists, and the activity feed.",
+      "project": "Brand Redesign",
+      "status": "In Review",
+      "assignees": [
+        { "initials": "SR", "name": "Sam Rivera" }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Kafka consumer group config",
+      "description": "Set consumer group offsets and retry policies for the new event ingestion pipeline.",
+      "project": "Data Pipeline",
+      "status": "Done",
+      "assignees": [
+        { "initials": "JD", "name": "Jordan Davis" }
+      ]
+    }
+  ],
+  "last30": [
+    {
+      "id": 8,
+      "title": "Database schema v2 migration",
+      "description": "Write and test Prisma migration scripts for the new multi-tenant schema structure.",
+      "project": "API v2 Launch",
+      "status": "Done",
+      "assignees": [
+        { "initials": "AL", "name": "Ada Lovelace" },
+        { "initials": "JD", "name": "Jordan Davis" }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Offline mode sync strategy",
+      "description": "Define conflict resolution rules for tasks edited offline and then reconnected.",
+      "project": "Mobile App",
+      "status": "Done",
+      "assignees": [
+        { "initials": "TW", "name": "Taylor Wong" }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Typeface selection & pairing",
+      "description": "Shortlist display and body font combinations. Present options to the team for vote.",
+      "project": "Brand Redesign",
+      "status": "Done",
+      "assignees": [
+        { "initials": "SR", "name": "Sam Rivera" },
+        { "initials": "AL", "name": "Ada Lovelace" }
+      ]
+    }
+  ]
+}

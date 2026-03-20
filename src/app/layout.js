@@ -20,9 +20,7 @@ export default function RootLayout({ children }) {
       >
         <StoreProvider>
           <Navbar />
-          <div className="mt-12">
           {children}
-          </div>
         </StoreProvider>
         <Footer />
       </body>

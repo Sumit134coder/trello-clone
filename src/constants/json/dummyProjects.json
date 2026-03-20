@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "slug": "brand-redesign",
+    "name": "Brand Redesign",
+    "tasks": 12,
+    "done": 7,
+    "members": ["AL", "JD", "SR"],
+    "updated": "2h ago"
+  },
+  {
+    "id": 2,
+    "slug": "api-v2",
+    "name": "API v2 Launch",
+    "tasks": 28,
+    "done": 19,
+    "members": ["AL", "MK"],
+    "updated": "5h ago"
+  },
+  {
+    "id": 3,
+    "slug": "onboarding-flow",
+    "name": "Onboarding Flow",
+    "tasks": 9,
+    "done": 2,
+    "members": ["SR", "JD", "TW", "AL"],
+    "updated": "Yesterday"
+  },
+  {
+    "id": 4,
+    "slug": "mobile-app",
+    "name": "Mobile App",
+    "tasks": 41,
+    "done": 34,
+    "members": ["MK", "TW"],
+    "updated": "3d ago"
+  },
+  {
+    "id": 5,
+    "slug": "data-pipeline",
+    "name": "Data Pipeline",
+    "tasks": 15,
+    "done": 15,
+    "members": ["JD", "AL"],
+    "updated": "1w ago"
+  }
+]
