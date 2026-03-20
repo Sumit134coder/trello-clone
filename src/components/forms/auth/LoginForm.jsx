@@ -1,8 +1,8 @@
 "use client";
 
-import CheckboxInput from "../common/CheckboxInput";
-import FormInput from "../common/FormInput";
-import PasswordInput from "../common/PasswordInput";
+import CheckboxInput from "@/components/common/inputs/CheckboxInput";
+import FormInput from "@/components/common/inputs/FormInput";
+import PasswordInput from "@/components/common/inputs/PasswordInput";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "@/lib/schemas/yup";

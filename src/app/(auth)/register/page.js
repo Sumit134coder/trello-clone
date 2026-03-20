@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import RegisterForm from "@/components/forms/RegisterForm";
+import RegisterForm from "@/components/forms/auth/RegisterForm";
 import { metaData, routes } from "@/constants";
 
 export const metadata = metaData.register

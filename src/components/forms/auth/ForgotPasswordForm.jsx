@@ -1,5 +1,5 @@
 "use client";
-import FormInput from "../common/FormInput";
+import FormInput from "@/components/common/inputs/FormInput";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { forgotPasswordSchema } from "@/lib/schemas/yup";

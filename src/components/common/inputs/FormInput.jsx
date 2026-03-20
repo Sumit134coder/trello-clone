@@ -1,4 +1,4 @@
-import FormError from "./inputs/FormError";
+import FormError from "./FormError";
 
 const FormInput = ({
   label,

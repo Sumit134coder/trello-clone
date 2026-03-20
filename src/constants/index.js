@@ -6,6 +6,7 @@ const routes = {
     forgotPassword: "/forgot-password",
   },
   home: "/",
+  dashboard : "/dashboard"
 };
 
 

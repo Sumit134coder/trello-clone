@@ -1,6 +1,6 @@
 import Link from "next/link";
-import ForgotPasswordForm from "@/components/forms/ForgotPasswordForm";
-import ResetPasswordForm from "@/components/forms/ResetPasswordForm";
+import ForgotPasswordForm from "@/components/forms/auth/ForgotPasswordForm";
+import ResetPasswordForm from "@/components/forms/auth/ResetPasswordForm";
 import { metaData, routes } from "@/constants";
 
 export const metadata = metaData.forgotPassword
