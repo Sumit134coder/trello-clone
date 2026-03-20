@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";
 import Link from "next/link";
-import FormError from "./FormError";
+import FormError from "./inputs/FormError";
 
 const PasswordInput = ({
   id,
