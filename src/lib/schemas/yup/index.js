@@ -50,7 +50,10 @@ const registerSchema = yup.object({
     .string()
     .oneOf([yup.ref("password"), null], "Passwords must match")
     .required("This is a required field"),
-  terms : yup.boolean().oneOf([true] , "Please agree...").required("Please agree to terms.")
+  terms: yup
+    .boolean()
+    .oneOf([true], "Please agree...")
+    .required("Please agree to terms."),
 });
 
 const confirmPasswordSchema = yup.object({
