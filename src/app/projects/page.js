@@ -1,3 +1,6 @@
+import Avatar from "@/components/common/Avatar";
+import FormDropdown from "@/components/common/inputs/FormDropdown";
+import { projectSortOptions } from "@/constants/filtersSortOptions";
 import Link from "next/link";
 
 export const metadata = {
@@ -150,7 +153,7 @@ const allProjects = [
   },
 ];
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+
 
 function progressPct(done, total) {
   return Math.round((done / total) * 100);
@@ -192,24 +195,6 @@ const statsSummary = {
 };
 
 // ── Sub-components ────────────────────────────────────────────────────────────
-
-function Avatar({ initials, name }) {
-  return (
-    <abbr
-      title={name}
-      className="
-        no-underline flex items-center justify-center
-        w-7 h-7 rounded-full shrink-0
-        bg-primary-500 border border-text-500/20
-        font-mono text-[0.55rem] tracking-wider uppercase text-text-500/60
-        -ml-2 first:ml-0
-        ring-1 ring-secondary-500
-      "
-    >
-      {initials}
-    </abbr>
-  );
-}
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
@@ -300,21 +285,7 @@ export default function ProjectsPage() {
             <span className="font-mono text-[0.6rem] tracking-widest uppercase text-text-500/25">
               Sort
             </span>
-            <select
-              aria-label="Sort projects"
-              className="
-                bg-secondary-500 border border-text-500/12
-                text-text-500/50 font-mono text-[0.6rem] tracking-widest uppercase
-                px-4 py-2 outline-none rounded-none
-                hover:border-text-500/30 focus:border-text-500/40
-                transition-all cursor-pointer
-              "
-            >
-              <option value="updated">Last Updated</option>
-              <option value="created">Date Created</option>
-              <option value="name">Name A–Z</option>
-              <option value="progress">Progress</option>
-            </select>
+            <FormDropdown aria-label="Sort projects" options={projectSortOptions} />
           </div>
         </div>
 
@@ -355,7 +326,7 @@ export default function ProjectsPage() {
                         `}
                         >
                           <span
-                            className={`w-1.5 h-1.5 rounded-full ${status.dot}`}
+                            className={`w-1.5 h-1.5 rounded-full ${status.dot} ${status.label ==="In Progress"  && 'animate-ping' }`}
                             aria-hidden
                           />
                           {status.label}
@@ -408,7 +379,8 @@ export default function ProjectsPage() {
                           <Avatar
                             key={m.initials + m.name}
                             initials={m.initials}
-                            name={m.name}
+                            title={m.name}
+                            className="avatar_primary"
                           />
                         ))}
                       </div>
@@ -439,14 +411,14 @@ export default function ProjectsPage() {
         </section>
 
         {/* ── Empty state (shown when filtered to 0 results) ── */}
-        {/* Uncomment when wiring filters:
-        <div className="flex flex-col items-center justify-center py-32 gap-6 border border-dashed border-text-500/12">
+        
+        { allProjects.length === 0 && <div className="flex flex-col items-center justify-center py-32 gap-6 border border-dashed border-text-500/12">
           <span className="font-mono text-[0.6rem] tracking-[0.25em] uppercase text-text-500/20">No projects match</span>
           <Link href="/projects/new" className="bg-text-500 text-primary-500 font-black text-xs tracking-[0.2em] uppercase px-7 py-4 hover:opacity-90 transition-all">
             + Create First Project
           </Link>
-        </div>
-        */}
+        </div>}
+       
       </div>
 
       {/* ══ FOOTER ═══════════════════════════════════════════════════════════ */}

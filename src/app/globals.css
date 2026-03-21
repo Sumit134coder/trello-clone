@@ -78,6 +78,18 @@ body {
   .input_dark {
     @apply bg-secondary-500 border border-text-500/12 text-text-500 placeholder:text-text-500/20 focus:border-text-500/50 focus:bg-secondary-600 hover:border-text-500/22 transition-all duration-200 rounded-none;
   }
+
+  .avatar {
+    @apply no-underline flex items-center justify-center w-7 h-7 rounded-full font-mono text-[0.55rem] tracking-wider uppercase text-text-500/60 -ml-2 first:ml-0 ring-1 border
+  }
+
+  .avatar_secondary{
+    @apply  bg-secondary-500 border border-text-500/20 text-text-500/60 ring-primary-500
+  }
+
+  .avatar_primary{
+    @apply  bg-primary-500 border border-text-500/20 text-text-500/60 ring-secondary-500
+  }
 }
 
 
