@@ -14,7 +14,7 @@ const Collaboration = () => {
         SOON
       </span>
 
-      <div className="max-w-[1400px] mx-auto w-full relative z-10">
+      <div className="max-w-350 mx-auto w-full relative z-10">
         <p className="text-xs tracking-[0.3em] uppercase text-text-secondary-500  mb-6">
           04 — Collaboration / Coming Soon
         </p>
@@ -43,7 +43,7 @@ const Collaboration = () => {
               key={item.title}
               className="border border-white/10 p-8 flex flex-col gap-4 hover:border-primary-500/30 transition-colors"
             >
-              <h3 className="text-xl md:text-2xl font-bold text-text-light-500">
+              <h3 className="text-xl md:text-2xl font-bold text-text-500">
                 {item.title}
               </h3>
               <p className="text-secondary-500 font-light leading-relaxed">

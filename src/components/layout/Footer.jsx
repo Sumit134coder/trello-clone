@@ -43,18 +43,18 @@ const siteLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-primary-500 text-text-500">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
-            <h2 className="text-xl font-semibold text-white">TaskFlow</h2>
+            <h2 className="text-xl font-semibold">TaskFlow</h2>
             <p className="mt-4 text-sm">
               Organize your tasks efficiently with our simple and powerful task
               management platform.
             </p>
           </div>
           <nav>
-            <h3 className="text-white font-semibold mb-4">Navigation</h3>
+            <h3 className="text-text-900 font-semibold mb-4">Navigation</h3>
             <ul className="space-y-2">
               {siteLinks["Navigation"].map(({ title, href }) => (
                 <li key={title}>
@@ -66,7 +66,7 @@ export default function Footer() {
             </ul>
           </nav>
           <nav>
-            <h3 className="text-white font-semibold mb-4">Resources</h3>
+            <h3 className="text-text-900 font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               {siteLinks["Resources"].map(({ title, href }) => (
                 <li key={title}>
@@ -78,7 +78,7 @@ export default function Footer() {
             </ul>
           </nav>
           <address className="not-italic">
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
+            <h3 className="text-text-900 font-semibold mb-4">Contact</h3>
             <p className="text-sm">Delhi, India</p>
             <p className="text-sm">support@taskflow.com</p>
             <div className="flex gap-4 mt-4">
@@ -94,7 +94,7 @@ export default function Footer() {
             </div>
           </address>
         </div>
-        <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm">
+        <div className="border-t border-secondary-500/10 mt-10 pt-6 text-center text-sm">
           © {new Date().getFullYear()} TaskFlow. All rights reserved.
         </div>
       </div>

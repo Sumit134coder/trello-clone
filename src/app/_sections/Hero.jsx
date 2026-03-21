@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     <section className="min-h-screen flex flex-col justify-end px-6 md:px-12 pt-40 pb-20 border-b border-white/10">
-      <div className="max-w-[1400px] mx-auto w-full">
+      <div className="max-w-350 mx-auto w-full">
         {/* Eyebrow */}
         <p className="text-xs tracking-[0.3em] uppercase text-primary-500 mb-8">
           Task Management, Reimagined
@@ -11,7 +11,7 @@ const Hero = () => {
 
         {/* Giant headline */}
         <h1
-          className="font-black uppercase leading-[0.88] tracking-tight text-[clamp(4rem,14vw,14rem)] text-text-light-500 mb-12"
+          className="font-black uppercase leading-[0.88] tracking-tight text-[clamp(4rem,14vw,14rem)] text-text-500 mb-12"
           style={{ fontStretch: "condensed" }}
         >
           Work

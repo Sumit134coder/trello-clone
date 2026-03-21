@@ -7,19 +7,14 @@
 
   /* -----COLORS---- */
   /* primary colors */
- 
-  --color-primary-500: #222831;
 
-  /* secondary colors */
- --color-secondary-500 : #393E46;
+  --color-primary-500: #0f0e0c;
+  --color-secondary-500: #1a1814;
+  --color-secondary-600: #1e1c18;
+  --color-text-500: #d4c5a9;
+  --color-text-900: #e8dcc8;
 
-  /* tertiary colors */
-  --color-tertiary-500: #948979;
-
-  --color-text-light-500 : #DFD0B8;
-
-
-  /* ---font-weight--- */ 
+  /* ---font-weight--- */
   --font-weight-400: 400;
   --font-weight-500: 500;
   --font-weight-600: 600;
@@ -42,31 +37,87 @@
   --text-large-1000: 96px;
 }
 
-
 body {
   background: var(--background);
   color: var(--foreground);
 }
 
-
-@layer components{
-  .link{
-    @apply transition-colors duration-150
+@layer components {
+  .link {
+    @apply transition-colors duration-150;
   }
 
-  .link_dark{
-    @apply text-gray-300 hover:text-white
+  .link_dark {
+    @apply text-text-500 hover:text-text-900;
   }
 
-  .btn{
-    @apply transition-colors transition-transform duration-500 inline-block font-bold text-sm tracking-widest uppercase px-8 py-4
+  .btn {
+    @apply px-8 py-5 transition-all duration-200 cursor-pointer rounded-none disabled:cursor-not-allowed;
   }
 
-  .btn_primary{
-    @apply bg-primary-500 text-tertiary-500 hover:bg-text-light-500
+  .btn_light {
+    @apply bg-text-500 text-primary-500 font-black text-xs tracking-[0.25em] uppercase hover:bg-text-900 active:scale-[0.98];
   }
 
-  .btn_light{
-    @apply border border-primary-500 hover:bg-primary-500 hover:text-tertiary-500 text-secondary-500 
+  .btn_primary {
+    @apply bg-primary-500 text-text-500 hover:bg-secondary-500 hover:text-text-900;
   }
+
+  .btn_primary_outline {
+    @apply border border-text-500/25 text-text-500/70  hover:border-text-500/60 hover:text-text-500 hover:bg-text-500/5;
+  }
+
+  .form_input {
+    @apply w-full px-5 py-4 text-sm font-light outline-none transition-all duration-200 rounded-none;
+  }
+
+  .form_checkbox {
+    @apply w-4 h-4 rounded-none border border-text-500/20  bg-secondary-500 accent-text-500 cursor-pointer;
+  }
+
+  .input_dark {
+    @apply bg-secondary-500 border border-text-500/12 text-text-500 placeholder:text-text-500/20 focus:border-text-500/50 focus:bg-secondary-600 hover:border-text-500/22 transition-all duration-200 rounded-none;
+  }
+
+  .avatar {
+    @apply no-underline flex items-center justify-center w-7 h-7 rounded-full font-mono text-[0.55rem] tracking-wider uppercase text-text-500/60 -ml-2 first:ml-0 ring-1 border
+  }
+
+  .avatar_secondary{
+    @apply  bg-secondary-500 border border-text-500/20 text-text-500/60 ring-primary-500
+  }
+
+  .avatar_primary{
+    @apply  bg-primary-500 border border-text-500/20 text-text-500/60 ring-secondary-500
+  }
+}
+
+
+
+/* -------animations---------- */
+.form_error_animate {
+  animation: shake 200ms ease-in-out 2;
+}
+
+.view_password_animation{
+  animation : scale-in 500ms ease-in-out
+}
+
+@keyframes scale-in{
+  from{
+    transform: scale(0.3) translateY(-2rem);
+    opacity : 0.5;
+  }
+  to{
+    transform: scale(1) translate(0px);
+    opacity : 1;
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
 }

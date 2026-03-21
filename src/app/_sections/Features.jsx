@@ -6,7 +6,7 @@ const Features = () => {
         id="features"
         className="px-6 md:px-12 py-28 md:py-40 border-b border-white/10"
       >
-        <div className="max-w-[1400px] mx-auto w-full">
+        <div className="max-w-350 mx-auto w-full">
           <p className="text-xs tracking-[0.3em] uppercase text-secondary-500 mb-6">
             03 — Key Features
           </p>
@@ -56,7 +56,7 @@ const Features = () => {
                   <span className="text-primary-500 text-lg shrink-0">
                     {item.num}
                   </span>
-                  <span className="text-lg md:text-2xl font-semibold text-text-light-500 group-hover:text-primary-500 transition-colors">
+                  <span className="text-lg md:text-2xl font-semibold text-text-500 group-hover:text-primary-500 transition-colors">
                     {item.feature}
                   </span>
                 </div>

@@ -1,3 +1,4 @@
+import { routes } from "@/constants";
 import React from "react";
 
 export const FinalCTA = () => {
@@ -15,7 +16,7 @@ export const FinalCTA = () => {
         <br />
         Is One Click
         <br />
-        <span className="text-text-light-500">Away.</span>
+        <span className="text-text-500">Away.</span>
       </h2>
 
       <p className="text-secondary-500 text-lg max-w-xl font-light leading-relaxed mb-14">
@@ -24,8 +25,8 @@ export const FinalCTA = () => {
       </p>
 
       <a
-        href="/signup"
-        className="inline-block bg-primary-500 text-tertiary-500 font-black text-sm tracking-[0.2em] uppercase px-12 py-5 hover:bg-text-light-500 hover:scale-105 transition-all duration-200"
+        href={routes.auth.register}
+        className="inline-block  font-black text-sm tracking-[0.2em] uppercase px-12 py-5  hover:scale-105 transition-all duration-200 btn_primary"
       >
         Create Your Free Board →
       </a>

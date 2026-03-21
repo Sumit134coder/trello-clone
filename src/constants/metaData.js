@@ -45,4 +45,58 @@ export const metaData = {
       follow: true,
     },
   },
+  login: {
+    title: "Login | TaskFlow",
+    description:
+      "Login to TaskFlow to manage your boards, track tasks, and collaborate with your team efficiently.",
+
+    robots: {
+      index: false,
+      follow: false,
+    },
+
+    openGraph: {
+      title: "Login to TaskFlow",
+      description:
+        "Access your TaskFlow account and manage your projects بسهولة.",
+      url: "https://taskflow.com/login",
+      type: "website",
+    },
+  },
+  register: {
+    title: "Sign Up | TaskFlow",
+    description:
+      "Create a free TaskFlow account and start organizing your tasks using boards, lists, and cards.",
+
+    robots: {
+      index: false,
+      follow: false,
+    },
+
+    openGraph: {
+      title: "Create Your TaskFlow Account",
+      description:
+        "Sign up for TaskFlow and start managing your projects efficiently.",
+      url: "https://taskflow.com/signup",
+      type: "website",
+    },
+  },
+  forgotPassword: {
+    title: "Forgot Password | TaskFlow",
+    description:
+      "Reset your TaskFlow account password securely and regain access to your tasks and projects.",
+
+    robots: {
+      index: false,
+      follow: false,
+    },
+
+    openGraph: {
+      title: "Reset Your Password - TaskFlow",
+      description:
+        "Recover your TaskFlow account by resetting your password securely.",
+      url: "https://taskflow.com/forgot-password",
+      type: "website",
+    },
+  },
 };
