@@ -9,7 +9,7 @@ const user = { name: "Ada Lovelace", username: "ada_lovelace", initials: "AL" };
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   if (isLoggedIn) {
     return (
@@ -135,7 +135,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="bg-secondary-500 text-text-500 border-b border-secondary-600/20 py-3 fixed top-0 left-0 w-screen z-100">
+    <header className="bg-secondary-500/90 text-text-500 border-b border-secondary-600/20 py-3 sticky z-50 top-0 left-0  backdrop-blur-sm ">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-xl font-semibold">
