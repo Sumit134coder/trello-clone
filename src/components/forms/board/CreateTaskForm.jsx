@@ -19,10 +19,10 @@ const defaultValues = {
   title: "",
   description: "",
   targetList: "backlog",
-  priority: "Medium",
-  assignedUsers: [],
-  tags: [],
-  dueDate: "",
+  priority: null,
+  assignedUsers: null,
+  tags: null,
+  dueDate: null,
 };
 
 const CreateTaskForm = ({ onCancel = () => {} }) => {
@@ -32,6 +32,7 @@ const CreateTaskForm = ({ onCancel = () => {} }) => {
     setValue,
     getValues,
     formState: { errors },
+    watch,
   } = useForm({
     resolver: yupResolver(createTaskSchema),
     defaultValues,
@@ -91,7 +92,7 @@ const CreateTaskForm = ({ onCancel = () => {} }) => {
             id="list"
             {...register("targetList")}
             options={lists}
-            defaultSelected={getValues("targetList")}
+            selected={watch("targetList")}
             className=" w-full mt-2  px-5 py-4"
           />
           {errors?.targetList?.message && (
@@ -114,7 +115,7 @@ const CreateTaskForm = ({ onCancel = () => {} }) => {
       </div>
 
       <TaskPrioritySelector
-        activeLabel={getValues("priority")}
+        activeLabel={watch("priority")}
         setValue={setValue}
         fieldError={errors?.priority?.message}
       />
@@ -125,6 +126,7 @@ const CreateTaskForm = ({ onCancel = () => {} }) => {
       />
       <TagSelector
         fieldName="tags"
+        selectedTags={watch("tags") || []}
         setValue={setValue}
         fieldError={errors?.tags?.message}
       />

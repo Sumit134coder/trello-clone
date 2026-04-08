@@ -15,18 +15,14 @@ const availableTags = [
   "Feature",
 ];
 
-const TagSelector = ({ fieldName, setValue, fieldError }) => {
+const TagSelector = ({ fieldName, setValue, fieldError, selectedTags }) => {
   const [showTagPicker, setShowTagPicker] = useState(false);
-  const [selectedTags, setSelectedTags] = useState([]);
 
   const toggleTag = (tag) => {
-    setSelectedTags((prev) => {
-      const updatedTags = prev.includes(tag)
-        ? prev.filter((t) => t !== tag)
-        : [...prev, tag];
-      if (setValue) setValue(fieldName, updatedTags);
-      return updatedTags;
-    });
+    const updatedTags = selectedTags.includes(tag)
+      ? selectedTags.filter((t) => t !== tag)
+      : [...selectedTags , tag];
+    if (setValue) setValue(fieldName, updatedTags);
   };
 
   return (
@@ -46,7 +42,7 @@ const TagSelector = ({ fieldName, setValue, fieldError }) => {
                 w-full flex items-center gap-3 flex-wrap
                 bg-primary-500 border border-text-500/12
                 hover:border-text-500/30
-                px-5 py-3.5 min-h-[52px]
+                px-5 py-3.5 min-h-13
                 transition-all duration-200 mb-2
               "
       >
