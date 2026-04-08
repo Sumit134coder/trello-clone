@@ -3,19 +3,30 @@ import { useState } from "react";
 import Avatar from "../common/Avatar";
 
 const members = [
-  { initials: "AL", name: "Ada Lovelace",  role: "Product Lead"    },
-  { initials: "JD", name: "Jordan Davis",  role: "Designer"        },
-  { initials: "SR", name: "Sam Rivera",    role: "Product Manager" },
-  { initials: "MK", name: "Mo Khan",       role: "Engineer"        },
+  { initials: "AL", name: "Ada Lovelace", role: "Product Lead" , id: 131  },
+  { initials: "JD", name: "Jordan Davis", role: "Designer" , id: 323 },
+  { initials: "SR", name: "Sam Rivera", role: "Product Manager" , id: 313 },
+  { initials: "MK", name: "Mo Khan", role: "Engineer" , id: 342 },
 ];
 
 const MemberAssigningDropdown = () => {
   const [showMemberPicker, setShowMemberPicker] = useState(false);
   const [selectedMembers, setSelectedMembers] = useState([]);
 
+  const toggleMember = (userId) =>{
+    console.log("Toggling member:", userId);
+    setSelectedMembers((prev) =>
+      prev.includes(userId)
+        ? prev.filter((m) => m !== userId)
+        : [...prev, userId],
+    );
+  }
+
   return (
     <div>
-      <label>Assignees</label>
+      <label className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40">
+        Assignees
+      </label>
 
       {/* Selected avatars + toggle */}
       <button
@@ -40,10 +51,10 @@ const MemberAssigningDropdown = () => {
         ) : (
           <div className="flex items-center gap-3">
             <div className="flex">
-              {selectedMembers.map((initials) => {
-                const m = members.find((x) => x.initials === initials);
+              {selectedMembers.map((id) => {
+                const m = members.find((x) => x.id === id);
                 return (
-                  <Avatar key={initials} initials={initials} title={m?.name} />
+                  <Avatar key={id} initials={m?.initials} title={m?.name} />
                 );
               })}
             </div>
@@ -66,7 +77,7 @@ const MemberAssigningDropdown = () => {
           className="flex flex-col gap-px bg-text-500/8 border border-t-0 border-text-500/12"
         >
           {members.map((m) => {
-            const selected = selectedMembers.includes(m.initials);
+            const selected = selectedMembers.includes(m.id);
             return (
               <label
                 key={m.initials}
@@ -91,9 +102,10 @@ const MemberAssigningDropdown = () => {
                 <input
                   type="checkbox"
                   name="assignees"
-                  value={m.initials}
+                  value={m.id}
+                  title={m.name}
                   checked={selected}
-                  onChange={() => toggleMember(m.initials)}
+                  onChange={() => toggleMember(m.id)}
                   aria-label={`Assign ${m.name}`}
                   className="w-4 h-4 rounded-none border border-text-500/20 bg-secondary-500 accent-text-500 cursor-pointer"
                 />

@@ -18,7 +18,7 @@ const FormTextarea = ({
           {label}
         </label>
       )}
-      <input
+      <textarea
         id={id}
         {...inputProps}
         className={`form_input input_dark ${inputClass}`}

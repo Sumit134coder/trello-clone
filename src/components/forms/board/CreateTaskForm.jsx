@@ -1,20 +1,42 @@
 "use client";
 
 import React from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormInput from "@/components/common/inputs/FormInput";
 import FormTextarea from "@/components/common/inputs/FormTextarea";
 import FormDropdown from "@/components/common/inputs/FormDropdown";
+import MemberAssigningDropdown from "@/components/board/MemberAssigningDropdown";
+import TagSelector from "@/components/board/TagSelector";
+import TaskPrioritySelector from "@/components/board/TaskPrioritySelector";
 
 const lists = ["Backlog", "Design", "Review", "Done"].map((name) => ({
   label: name,
   value: name.toLowerCase(),
 }));
 
+const priorityConfig = {
+  High: {
+    dot: "bg-text-500",
+    text: "text-text-500",
+    border: "border-text-500/40",
+    bg: "bg-text-500/8",
+  },
+  Med: {
+    dot: "bg-text-500/55",
+    text: "text-text-500/60",
+    border: "border-text-500/22",
+    bg: "bg-text-500/4",
+  },
+  Low: {
+    dot: "bg-text-500/22",
+    text: "text-text-500/35",
+    border: "border-text-500/12",
+    bg: "bg-transparent",
+  },
+};
 
-
-const CreateTaskForm = () => {
+const CreateTaskForm = ({ onCancel = () => {} }) => {
   const {
     register,
     handleSubmit,
@@ -25,10 +47,14 @@ const CreateTaskForm = () => {
     // resolver: yupResolver(createTaskSchema),
   });
 
+  const handleCreateTask = (values) => {
+    console.log("Creating task with values:", values);
+  };
+
   return (
     <form
       id="add-card-form"
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(handleCreateTask)}
       noValidate
       aria-label="Add card form"
       className="flex-1 overflow-y-auto px-7 py-6 flex flex-col gap-6"
@@ -60,23 +86,22 @@ const CreateTaskForm = () => {
         }
       />
 
-      {/* List + Priority row */}
       <div className="grid grid-cols-2 gap-4">
-        {/* List */}
         <div>
           <label
             htmlFor="list"
-            className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40"
+            className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40 block"
           >
             List
           </label>
           <FormDropdown
             id="list"
+            {...register("targetList")}
             options={lists}
-            selected={getValues("list")}
+            selected={getValues("targetList")}
+            className=" w-full mt-2  px-5 py-4"
           />
         </div>
-       
 
         <FormInput
           label="Due Date"
@@ -90,213 +115,53 @@ const CreateTaskForm = () => {
             errors?.dueDate?.message ? "title-error" : undefined
           }
         />
-
-        {/* Due date */}
       </div>
 
-      {/* Priority */}
-      <div>
-        <FieldLabel>Priority</FieldLabel>
-        <div className="flex gap-3" role="group" aria-label="Select priority">
-          {["High", "Med", "Low"].map((p) => {
-            const cfg = priorityConfig[p];
-            const isActive = priority === p;
-            return (
-              <button
-                key={p}
-                type="button"
-                aria-pressed={isActive}
-                onClick={() => setPriority(p)}
-                className={`
-                      flex-1 flex items-center justify-center gap-2
-                      border py-3
-                      font-mono text-[0.6rem] tracking-widest uppercase
-                      transition-all duration-150
-                      ${
-                        isActive
-                          ? `${cfg.bg} ${cfg.text} ${cfg.border}`
-                          : "border-text-500/10 text-text-500/25 hover:border-text-500/25 hover:text-text-500/45"
-                      }
-                    `}
-              >
-                <span
-                  className={`w-1.5 h-1.5 rounded-full ${isActive ? cfg.dot : "bg-text-500/20"}`}
-                  aria-hidden
-                />
-                {p}
-              </button>
-            );
-          })}
+      <TaskPrioritySelector
+        activeLabel={getValues("priority")}
+        setValue={setValue}
+      />
+      <MemberAssigningDropdown />
+      <TagSelector />
+
+      <div className="flex items-center justify-between gap-4 px-7 py-5 border-t border-text-500/8 shrink-0 bg-secondary-500">
+        <p className="font-mono text-[0.55rem] tracking-widest uppercase text-text-500/20 hidden sm:block">
+          Press{" "}
+          <kbd className="border border-text-500/15 px-1.5 py-0.5 font-mono text-[0.5rem]">
+            Esc
+          </kbd>{" "}
+          to cancel
+        </p>
+
+        <div className="flex items-center gap-3 ml-auto">
+          <button
+            type="button"
+            onClick={onCancel}
+            className="
+                font-mono text-[0.62rem] tracking-[0.2em] uppercase
+                text-text-500/30 hover:text-text-500/60
+                border border-text-500/12 hover:border-text-500/30
+                px-6 py-3.5
+                transition-all duration-200
+              "
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            className="
+                bg-text-500 text-primary-500
+                font-black text-[0.62rem] tracking-[0.22em] uppercase
+                px-8 py-3.5
+                hover:opacity-90 active:scale-[0.98]
+                transition-all duration-150
+                cursor-pointer
+              "
+          >
+            Add Card →
+          </button>
         </div>
-      </div>
-
-      {/* Assignees */}
-      <div>
-        <FieldLabel optional>Assignees</FieldLabel>
-
-        {/* Selected avatars + toggle */}
-        <button
-          type="button"
-          aria-expanded={showMemberPicker}
-          aria-controls="member-picker"
-          onClick={() => {
-            setShowMemberPicker((v) => !v);
-            setShowTagPicker(false);
-          }}
-          className="
-                w-full flex items-center gap-4
-                bg-primary-500 border border-text-500/12
-                hover:border-text-500/30
-                px-5 py-3.5
-                transition-all duration-200
-              "
-        >
-          {selectedMembers.length === 0 ? (
-            <span className="font-mono text-[0.6rem] tracking-widest uppercase text-text-500/25">
-              Click to assign members
-            </span>
-          ) : (
-            <div className="flex items-center gap-3">
-              <div className="flex">
-                {selectedMembers.map((initials) => {
-                  const m = members.find((x) => x.initials === initials);
-                  return (
-                    <Avatar key={initials} initials={initials} name={m?.name} />
-                  );
-                })}
-              </div>
-              <span className="font-mono text-[0.58rem] tracking-widest uppercase text-text-500/35">
-                {selectedMembers.length} assigned
-              </span>
-            </div>
-          )}
-          <span className="ml-auto font-mono text-text-500/20 text-xs">
-            {showMemberPicker ? "▲" : "▼"}
-          </span>
-        </button>
-
-        {/* Member picker dropdown */}
-        {showMemberPicker && (
-          <div
-            id="member-picker"
-            role="group"
-            aria-label="Select assignees"
-            className="flex flex-col gap-px bg-text-500/8 border border-t-0 border-text-500/12"
-          >
-            {members.map((m) => {
-              const selected = selectedMembers.includes(m.initials);
-              return (
-                <label
-                  key={m.initials}
-                  className={`
-                        flex items-center justify-between gap-4
-                        px-5 py-3.5 cursor-pointer
-                        transition-all duration-150
-                        ${selected ? "bg-primary-500/80" : "bg-primary-500 hover:bg-primary-500/60"}
-                      `}
-                >
-                  <div className="flex items-center gap-3">
-                    <Avatar initials={m.initials} name={m.name} />
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-sm font-medium text-text-500/75">
-                        {m.name}
-                      </span>
-                      <span className="font-mono text-[0.5rem] tracking-widest uppercase text-text-500/25">
-                        {m.role}
-                      </span>
-                    </div>
-                  </div>
-                  <input
-                    type="checkbox"
-                    name="assignees"
-                    value={m.initials}
-                    checked={selected}
-                    onChange={() => toggleMember(m.initials)}
-                    aria-label={`Assign ${m.name}`}
-                    className="w-4 h-4 rounded-none border border-text-500/20 bg-secondary-500 accent-text-500 cursor-pointer"
-                  />
-                </label>
-              );
-            })}
-          </div>
-        )}
-      </div>
-
-      {/* Tags */}
-      <div>
-        <FieldLabel optional>Tags</FieldLabel>
-
-        <button
-          type="button"
-          aria-expanded={showTagPicker}
-          aria-controls="tag-picker"
-          onClick={() => {
-            setShowTagPicker((v) => !v);
-            setShowMemberPicker(false);
-          }}
-          className="
-                w-full flex items-center gap-3 flex-wrap
-                bg-primary-500 border border-text-500/12
-                hover:border-text-500/30
-                px-5 py-3.5 min-h-[52px]
-                transition-all duration-200
-              "
-        >
-          {selectedTags.length === 0 ? (
-            <span className="font-mono text-[0.6rem] tracking-widest uppercase text-text-500/25">
-              Click to add tags
-            </span>
-          ) : (
-            <div className="flex flex-wrap gap-2">
-              {selectedTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="font-mono text-[0.5rem] tracking-widest uppercase text-text-500/60 border border-text-500/25 px-2.5 py-1"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-          <span className="ml-auto font-mono text-text-500/20 text-xs shrink-0">
-            {showTagPicker ? "▲" : "▼"}
-          </span>
-        </button>
-
-        {/* Tag picker */}
-        {showTagPicker && (
-          <div
-            id="tag-picker"
-            role="group"
-            aria-label="Select tags"
-            className="flex flex-wrap gap-2 p-4 border border-t-0 border-text-500/12 bg-primary-500/60"
-          >
-            {availableTags.map((tag) => {
-              const selected = selectedTags.includes(tag);
-              return (
-                <button
-                  key={tag}
-                  type="button"
-                  aria-pressed={selected}
-                  onClick={() => toggleTag(tag)}
-                  className={`
-                        font-mono text-[0.55rem] tracking-widest uppercase
-                        border px-3 py-1.5
-                        transition-all duration-150
-                        ${
-                          selected
-                            ? "bg-text-500/10 text-text-500/70 border-text-500/35"
-                            : "text-text-500/25 border-text-500/10 hover:border-text-500/25 hover:text-text-500/45"
-                        }
-                      `}
-                >
-                  {selected && <span className="mr-1.5">✓</span>}
-                  {tag}
-                </button>
-              );
-            })}
-          </div>
-        )}
       </div>
     </form>
   );
