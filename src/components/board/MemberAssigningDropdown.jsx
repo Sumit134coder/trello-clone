@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Avatar from "../common/Avatar";
+import FormError from "../common/inputs/FormError";
+import { Form } from "lucide-react";
 
 const members = [
   { initials: "AL", name: "Ada Lovelace", role: "Product Lead" , id: 131  },
@@ -9,7 +11,9 @@ const members = [
   { initials: "MK", name: "Mo Khan", role: "Engineer" , id: 342 },
 ];
 
-const MemberAssigningDropdown = () => {
+const MemberAssigningDropdown = ({
+  registerFn , fieldName , fieldError
+}) => {
   const [showMemberPicker, setShowMemberPicker] = useState(false);
   const [selectedMembers, setSelectedMembers] = useState([]);
 
@@ -41,7 +45,7 @@ const MemberAssigningDropdown = () => {
                 bg-primary-500 border border-text-500/12
                 hover:border-text-500/30
                 px-5 py-3.5
-                transition-all duration-200
+                transition-all duration-200 mb-2
               "
       >
         {selectedMembers.length === 0 ? (
@@ -105,6 +109,7 @@ const MemberAssigningDropdown = () => {
                   value={m.id}
                   title={m.name}
                   checked={selected}
+                  {...registerFn ? registerFn(fieldName) : {}}
                   onChange={() => toggleMember(m.id)}
                   aria-label={`Assign ${m.name}`}
                   className="w-4 h-4 rounded-none border border-text-500/20 bg-secondary-500 accent-text-500 cursor-pointer"
@@ -114,6 +119,10 @@ const MemberAssigningDropdown = () => {
           })}
         </div>
       )}
+
+      {
+        fieldError && <FormError message={fieldError} />
+      }
     </div>
   );
 };

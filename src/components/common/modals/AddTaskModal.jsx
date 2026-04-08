@@ -3,18 +3,9 @@
 import { useEffect, useRef } from "react";
 import CreateTaskForm from "@/components/forms/board/CreateTaskForm";
 
-
-
-
-
-export function AddTaskModal({
-  isOpen,
-  onClose,
-  defaultList = "Backlog",}
-) {
-
-  const dialogRef  = useRef(null);
-  const titleRef   = useRef(null);
+export function AddTaskModal({ isOpen, onClose, defaultList = "Backlog" }) {
+  const dialogRef = useRef(null);
+  const titleRef = useRef(null);
 
   // Open / close the native <dialog>
   useEffect(() => {
@@ -35,7 +26,9 @@ export function AddTaskModal({
 
   // Escape key
   useEffect(() => {
-    const handleKey = (e) => { if (e.key === "Escape") onClose(); };
+    const handleKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [onClose]);
@@ -62,14 +55,9 @@ export function AddTaskModal({
   //   onClose();
   // };
 
-  const resetForm = () => {
-    setTitle(""); setDescription(""); setDueDate("");
-    setSelectedList(defaultList); setPriority("Med");
-    setSelectedMembers([]); setSelectedTags([]);
-    setTitleError(false); setShowMemberPicker(false); setShowTagPicker(false);
+  const handleClose = () => {
+    onClose();
   };
-
-  const handleClose = () => { resetForm(); onClose(); };
 
   if (!isOpen) return null;
 
@@ -97,7 +85,6 @@ export function AddTaskModal({
         "
         onClick={(e) => e.stopPropagation()}
       >
-
         {/* ── Modal Header ── */}
         <header className="flex items-center justify-between px-7 pt-7 pb-5 border-b border-text-500/8 shrink-0">
           <div className="flex flex-col gap-1.5">
@@ -129,7 +116,6 @@ export function AddTaskModal({
         </header>
 
         <CreateTaskForm onCancel={handleClose} />
-
       </div>
     </dialog>
   );

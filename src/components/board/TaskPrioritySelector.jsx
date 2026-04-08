@@ -1,4 +1,4 @@
-import React from "react";
+import FormError from "../common/inputs/FormError";
 
 const priorityConfig = {
   High: {
@@ -21,7 +21,7 @@ const priorityConfig = {
   },
 };
 
-const TaskPrioritySelector = ({ activeLabel = "", setValue }) => {
+const TaskPrioritySelector = ({ activeLabel = "", setValue , fieldError }) => {
 
     console.log({activeLabel})
 
@@ -30,7 +30,7 @@ const TaskPrioritySelector = ({ activeLabel = "", setValue }) => {
       <label className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40">
         Priority
       </label>
-      <div className="flex gap-3" role="group" aria-label="Select priority">
+      <div className="flex gap-3 mb-2" role="group"  aria-label="Select priority">
         {["High", "Med", "Low"].map((p) => {
           const cfg = priorityConfig[p];
           const isActive = activeLabel === p;
@@ -61,6 +61,9 @@ const TaskPrioritySelector = ({ activeLabel = "", setValue }) => {
           );
         })}
       </div>
+      {
+        fieldError && <FormError message={fieldError} />
+      }
     </div>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { set, useForm } from "react-hook-form";
+import { createTaskSchema } from "@/lib/schemas/yup/board";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormInput from "@/components/common/inputs/FormInput";
 import FormTextarea from "@/components/common/inputs/FormTextarea";
@@ -15,25 +15,14 @@ const lists = ["Backlog", "Design", "Review", "Done"].map((name) => ({
   value: name.toLowerCase(),
 }));
 
-const priorityConfig = {
-  High: {
-    dot: "bg-text-500",
-    text: "text-text-500",
-    border: "border-text-500/40",
-    bg: "bg-text-500/8",
-  },
-  Med: {
-    dot: "bg-text-500/55",
-    text: "text-text-500/60",
-    border: "border-text-500/22",
-    bg: "bg-text-500/4",
-  },
-  Low: {
-    dot: "bg-text-500/22",
-    text: "text-text-500/35",
-    border: "border-text-500/12",
-    bg: "bg-transparent",
-  },
+const defaultValues = {
+  title: "",
+  description: "",
+  targetList: "backlog",
+  priority: "Medium",
+  assignedUsers: [],
+  tags: [],
+  dueDate: "",
 };
 
 const CreateTaskForm = ({ onCancel = () => {} }) => {
@@ -44,8 +33,12 @@ const CreateTaskForm = ({ onCancel = () => {} }) => {
     getValues,
     formState: { errors },
   } = useForm({
-    // resolver: yupResolver(createTaskSchema),
+    resolver: yupResolver(createTaskSchema),
+    defaultValues,
   });
+
+  console.log("Form errors:", errors);
+  console.log("Current form values:", getValues());
 
   const handleCreateTask = (values) => {
     console.log("Creating task with values:", values);
@@ -98,9 +91,12 @@ const CreateTaskForm = ({ onCancel = () => {} }) => {
             id="list"
             {...register("targetList")}
             options={lists}
-            selected={getValues("targetList")}
+            defaultSelected={getValues("targetList")}
             className=" w-full mt-2  px-5 py-4"
           />
+          {errors?.targetList?.message && (
+            <FormError message={errors?.targetList?.message} />
+          )}
         </div>
 
         <FormInput
@@ -120,9 +116,18 @@ const CreateTaskForm = ({ onCancel = () => {} }) => {
       <TaskPrioritySelector
         activeLabel={getValues("priority")}
         setValue={setValue}
+        fieldError={errors?.priority?.message}
       />
-      <MemberAssigningDropdown />
-      <TagSelector />
+      <MemberAssigningDropdown
+        registerFn={register}
+        fieldName="assignedUsers"
+        fieldError={errors?.assignedUsers?.message}
+      />
+      <TagSelector
+        fieldName="tags"
+        setValue={setValue}
+        fieldError={errors?.tags?.message}
+      />
 
       <div className="flex items-center justify-between gap-4 px-7 py-5 border-t border-text-500/8 shrink-0 bg-secondary-500">
         <p className="font-mono text-[0.55rem] tracking-widest uppercase text-text-500/20 hidden sm:block">

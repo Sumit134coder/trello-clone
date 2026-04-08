@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import FormError from "../common/inputs/FormError";
 
 const availableTags = [
   "Design",
@@ -14,13 +15,25 @@ const availableTags = [
   "Feature",
 ];
 
-const TagSelector = () => {
+const TagSelector = ({ fieldName, setValue, fieldError }) => {
   const [showTagPicker, setShowTagPicker] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
 
+  const toggleTag = (tag) => {
+    setSelectedTags((prev) => {
+      const updatedTags = prev.includes(tag)
+        ? prev.filter((t) => t !== tag)
+        : [...prev, tag];
+      if (setValue) setValue(fieldName, updatedTags);
+      return updatedTags;
+    });
+  };
+
   return (
     <div>
-      <label className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40">Tags</label>
+      <label className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40">
+        Tags
+      </label>
 
       <button
         type="button"
@@ -34,7 +47,7 @@ const TagSelector = () => {
                 bg-primary-500 border border-text-500/12
                 hover:border-text-500/30
                 px-5 py-3.5 min-h-[52px]
-                transition-all duration-200
+                transition-all duration-200 mb-2
               "
       >
         {selectedTags.length === 0 ? (
@@ -92,6 +105,7 @@ const TagSelector = () => {
           })}
         </div>
       )}
+      {fieldError && <FormError message={fieldError} />}
     </div>
   );
 };
