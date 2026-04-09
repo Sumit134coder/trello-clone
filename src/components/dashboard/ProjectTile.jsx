@@ -1,10 +1,8 @@
 import React from "react";
 import Avatar from "../common/Avatar";
 import Link from "next/link";
-
-function progressPct(done, total) {
-  return Math.round((done / total) * 100);
-}
+import ProgressBar from "../common/ProgressBar";
+import { progressPct } from "@/lib/utils/helpers";
 
 const ProjectTile = ({ projectInfo = {} }) => {
   const pct = progressPct(projectInfo.done, projectInfo.tasks);
@@ -38,17 +36,7 @@ const ProjectTile = ({ projectInfo = {} }) => {
 
       {/* Progress bar */}
       <div className="flex flex-col gap-2">
-        <div className="w-full h-px bg-text-500/10 relative">
-          <div
-            className="absolute top-0 left-0 h-full bg-text-500/50 transition-all duration-500"
-            style={{ width: `${pct}%` }}
-            role="progressbar"
-            aria-valuenow={pct}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-label={`${pct}% complete`}
-          />
-        </div>
+        <ProgressBar percentage={pct} />
         <div className="flex items-center justify-between">
           <span className="font-mono text-[0.55rem] tracking-widest uppercase text-text-500/25">
             {projectInfo?.done}/{projectInfo?.tasks} tasks
@@ -63,7 +51,7 @@ const ProjectTile = ({ projectInfo = {} }) => {
       <div className="flex items-center gap-2 pt-1 border-t border-text-500/8">
         <div className="flex">
           {projectInfo?.members.map((m) => (
-            <Avatar key={m} initials={m} />
+            <Avatar key={m} initials={m.initials} />
           ))}
         </div>
         <span className="font-mono text-[0.5rem] tracking-widest uppercase text-text-500/20 ml-1">

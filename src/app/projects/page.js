@@ -1,7 +1,11 @@
-import Avatar from "@/components/common/Avatar";
+import AvatarStack from "@/components/common/AvatarStack";
 import FormDropdown from "@/components/common/inputs/FormDropdown";
+import StatusBadge from "@/components/common/StatusBadge";
+import ProjectRowProgress from "@/components/projects/ProjectRowProgress";
 import { projectSortOptions } from "@/constants/filtersSortOptions";
 import Link from "next/link";
+import dummyProjects from "@/constants/json/dummyProjects.json";
+import { progressPct } from "@/lib/utils/helpers";
 
 export const metadata = {
   title: "Projects — TaskFlow",
@@ -12,152 +16,8 @@ export const metadata = {
 
 const user = { name: "Ada Lovelace", username: "ada_lovelace", initials: "AL" };
 
-const allProjects = [
-  {
-    id: 1,
-    slug: "brand-redesign",
-    name: "Brand Redesign",
-    description:
-      "Overhaul the visual identity — color system, typography, component library, and brand guidelines.",
-    tasks: 12,
-    done: 7,
-    status: "In Progress",
-    members: [
-      { initials: "AL", name: "Ada Lovelace" },
-      { initials: "JD", name: "Jordan Davis" },
-      { initials: "SR", name: "Sam Rivera" },
-    ],
-    lists: ["Backlog", "Design", "Review", "Done"],
-    updated: "2h ago",
-    created: "Mar 1, 2026",
-  },
-  {
-    id: 2,
-    slug: "api-v2",
-    name: "API v2 Launch",
-    description:
-      "Rebuild the public API with rate limiting, versioning, and improved developer documentation.",
-    tasks: 28,
-    done: 19,
-    status: "In Progress",
-    members: [
-      { initials: "AL", name: "Ada Lovelace" },
-      { initials: "MK", name: "Mo Khan" },
-    ],
-    lists: ["Backlog", "In Dev", "Testing", "Done"],
-    updated: "5h ago",
-    created: "Feb 10, 2026",
-  },
-  {
-    id: 3,
-    slug: "onboarding-flow",
-    name: "Onboarding Flow",
-    description:
-      "Redesign the new-user onboarding sequence based on interview findings and drop-off analytics.",
-    tasks: 9,
-    done: 2,
-    status: "In Progress",
-    members: [
-      { initials: "SR", name: "Sam Rivera" },
-      { initials: "JD", name: "Jordan Davis" },
-      { initials: "TW", name: "Taylor Wong" },
-      { initials: "AL", name: "Ada Lovelace" },
-    ],
-    lists: ["Research", "Design", "Dev", "Done"],
-    updated: "Yesterday",
-    created: "Feb 28, 2026",
-  },
-  {
-    id: 4,
-    slug: "mobile-app",
-    name: "Mobile App",
-    description:
-      "Native iOS and Android app with offline support, push notifications, and drag-and-drop boards.",
-    tasks: 41,
-    done: 34,
-    status: "In Review",
-    members: [
-      { initials: "MK", name: "Mo Khan" },
-      { initials: "TW", name: "Taylor Wong" },
-    ],
-    lists: ["Backlog", "In Dev", "QA", "Done"],
-    updated: "3d ago",
-    created: "Jan 15, 2026",
-  },
-  {
-    id: 5,
-    slug: "data-pipeline",
-    name: "Data Pipeline",
-    description:
-      "Kafka-based event ingestion pipeline with consumer groups, retry policies, and monitoring dashboards.",
-    tasks: 15,
-    done: 15,
-    status: "Done",
-    members: [
-      { initials: "JD", name: "Jordan Davis" },
-      { initials: "AL", name: "Ada Lovelace" },
-    ],
-    lists: ["Planning", "Build", "Testing", "Done"],
-    updated: "1w ago",
-    created: "Dec 20, 2025",
-  },
-  {
-    id: 6,
-    slug: "design-system",
-    name: "Design System",
-    description:
-      "Build a shared component library in Storybook — tokens, primitives, and composite patterns.",
-    tasks: 22,
-    done: 8,
-    status: "In Progress",
-    members: [
-      { initials: "SR", name: "Sam Rivera" },
-      { initials: "AL", name: "Ada Lovelace" },
-      { initials: "JD", name: "Jordan Davis" },
-    ],
-    lists: ["Tokens", "Components", "Docs", "Done"],
-    updated: "4h ago",
-    created: "Mar 5, 2026",
-  },
-  {
-    id: 7,
-    slug: "security-audit",
-    name: "Security Audit",
-    description:
-      "Third-party penetration testing, vulnerability remediation, and SOC 2 compliance prep.",
-    tasks: 18,
-    done: 18,
-    status: "Done",
-    members: [{ initials: "MK", name: "Mo Khan" }],
-    lists: ["Scope", "Testing", "Fixes", "Signed Off"],
-    updated: "2w ago",
-    created: "Jan 5, 2026",
-  },
-  {
-    id: 8,
-    slug: "growth-q1",
-    name: "Growth Q1",
-    description:
-      "Landing pages, SEO sprints, and referral program mechanics for Q1 acquisition targets.",
-    tasks: 33,
-    done: 5,
-    status: "Blocked",
-    members: [
-      { initials: "TW", name: "Taylor Wong" },
-      { initials: "SR", name: "Sam Rivera" },
-      { initials: "AL", name: "Ada Lovelace" },
-    ],
-    lists: ["Ideas", "In Progress", "Review", "Live"],
-    updated: "6h ago",
-    created: "Mar 10, 2026",
-  },
-];
+const allProjects = dummyProjects
 
-
-
-function progressPct(done, total) {
-  return Math.round((done / total) * 100);
-}
 
 const statusConfig = {
   "In Progress": {
@@ -317,20 +177,7 @@ export default function ProjectsPage() {
                           {p.name}
                         </h2>
                         {/* Status badge */}
-                        <span
-                          className={`
-                          inline-flex items-center gap-1.5
-                          font-mono text-[0.55rem] tracking-widest uppercase
-                          border px-2.5 py-1
-                          ${status.text} ${status.border}
-                        `}
-                        >
-                          <span
-                            className={`w-1.5 h-1.5 rounded-full ${status.dot} ${status.label ==="In Progress"  && 'animate-ping' }`}
-                            aria-hidden
-                          />
-                          {status.label}
-                        </span>
+                        <StatusBadge status={status} />
                       </div>
                       <p className="text-sm text-text-500/35 font-light leading-relaxed line-clamp-1 max-w-2xl">
                         {p.description}
@@ -350,40 +197,11 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* ── Progress ── */}
-                    <div className="flex flex-col gap-2 w-full lg:w-40 shrink-0">
-                      <div className="flex items-center justify-between">
-                        <span className="font-mono text-[0.55rem] tracking-widest uppercase text-text-500/25">
-                          {p.done}/{p.tasks} tasks
-                        </span>
-                        <span className="font-mono text-[0.55rem] tracking-widest uppercase text-text-500/40 font-semibold">
-                          {pct}%
-                        </span>
-                      </div>
-                      <div className="w-full h-px bg-text-500/10 relative">
-                        <div
-                          className="absolute top-0 left-0 h-full bg-text-500/50 transition-all duration-500"
-                          style={{ width: `${pct}%` }}
-                          role="progressbar"
-                          aria-valuenow={pct}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                          aria-label={`${pct}% complete`}
-                        />
-                      </div>
-                    </div>
+                    <ProjectRowProgress doneTask={p.done} totalTask={p.tasks} />
 
                     {/* ── Members ── */}
                     <div className="flex items-center gap-3 shrink-0">
-                      <div className="flex">
-                        {p.members.map((m) => (
-                          <Avatar
-                            key={m.initials + m.name}
-                            initials={m.initials}
-                            title={m.name}
-                            className="avatar_primary"
-                          />
-                        ))}
-                      </div>
+                      <AvatarStack members={p.members}/>
                     </div>
 
                     {/* ── Meta ── */}

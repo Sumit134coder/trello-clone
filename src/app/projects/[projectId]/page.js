@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { progressPct } from "@/lib/utils/helpers";
 
 export const metadata = {
   title: "Brand Redesign — TaskFlow",
@@ -72,10 +73,6 @@ const tasksByList = {
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-
-function progressPct(done, total ) {
-  return Math.round((done / total) * 100);
-}
 
 const statusConfig = {
   "In Progress": { dot: "bg-text-500",     text: "text-text-500",     border: "border-text-500/35" },
