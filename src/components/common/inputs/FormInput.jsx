@@ -1,23 +1,19 @@
 import FormError from "./FormError";
+import FormLabel from "../ui/FormLabel";
 
 const FormInput = ({
   label,
   inputClass,
+  optional = false,
   errorMsg,
   infoText,
   id,
+  containerClass,
   ...inputProps
 }) => {
   return (
-    <div className="flex flex-col gap-2">
-      {label && (
-        <label
-          htmlFor={id}
-          className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40"
-        >
-          {label}
-        </label>
-      )}
+    <div className={`flex flex-col gap-2 ${containerClass}`}>
+      {label && <FormLabel id={id} label={label} optional={optional} />}
       <input
         id={id}
         {...inputProps}

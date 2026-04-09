@@ -1,23 +1,18 @@
+import FormLabel from "../ui/FormLabel";
 import FormError from "./FormError";
 
 const FormTextarea = ({
   label,
   inputClass,
   errorMsg,
+  optional,
   infoText,
   id,
   ...inputProps
 }) => {
   return (
     <div className="flex flex-col gap-2">
-      {label && (
-        <label
-          htmlFor={id}
-          className="font-mono text-[0.65rem] tracking-[0.25em] uppercase text-text-500/40"
-        >
-          {label}
-        </label>
-      )}
+      {label && <FormLabel id={id} label={label} optional={optional} />}
       <textarea
         id={id}
         {...inputProps}
