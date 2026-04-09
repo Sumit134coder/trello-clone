@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "name": "Backlog",
+    "color": "bg-text-500/10",
+    "cards": [
+      {
+        "id": 101,
+        "title": "Motion & animation guidelines",
+        "description":
+          "Define easing curves, duration scales, and usage rules for all UI transitions.",
+        "priority": "Low",
+        "assignees": [{ "initials": "SR", "name": "Sam Rivera" }],
+        "due": "Apr 10",
+        "tags": ["Guidelines"],
+        "comments": 2
+      },
+      {
+        "id": 102,
+        "title": "Social media template kit",
+        "description":
+          "Create Figma templates for Instagram, LinkedIn, and Twitter brand posts.",
+        "priority": "Med",
+        "assignees": [{ "initials": "JD", "name": "Jordan Davis" }],
+        "due": "Apr 12",
+        "tags": ["Templates"],
+        "attachments": 1,
+        "comments": 4
+      },
+      {
+        "id": 103,
+        "title": "Print collateral specs",
+        "description":
+          "Document bleed, margin, and colour profile requirements for print vendors.",
+        "priority": "Low",
+        "assignees": [],
+        "tags": ["Docs"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Design",
+    "color": "bg-text-500/20",
+    "cards": [
+      {
+        "id": 201,
+        "title": "Icon set — 1st pass",
+        "description":
+          "Design 32px grid-aligned icons for nav, actions, and status indicators.",
+        "priority": "High",
+        "assignees": [{ "initials": "JD", "name": "Jordan Davis" }],
+        "due": "Mar 28",
+        "tags": ["Icons", "Figma"],
+        "attachments": 3,
+        "comments": 6
+      },
+      {
+        "id": 202,
+        "title": "Spacing & grid system",
+        "description":
+          "Define 4pt base grid, spacing tokens, and responsive column behaviour.",
+        "priority": "High",
+        "assignees": [
+          { "initials": "AL", "name": "Ada Lovelace" },
+          { "initials": "JD", "name": "Jordan Davis" }
+        ],
+        "due": "Mar 25",
+        "tags": ["Tokens"],
+        "comments": 3
+      },
+      {
+        "id": 203,
+        "title": "Illustration style exploration",
+        "description":
+          "Explore 3 visual directions for editorial illustrations. Present to team by end of sprint.",
+        "priority": "Med",
+        "assignees": [{ "initials": "SR", "name": "Sam Rivera" }],
+        "due": "Apr 2",
+        "tags": ["Illustration"],
+        "attachments": 5
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Review",
+    "color": "bg-text-500/30",
+    "cards": [
+      {
+        "id": 301,
+        "title": "Typeface selection & pairing",
+        "description":
+          "Shortlist display and body font combinations. Present options with usage examples.",
+        "priority": "High",
+        "assignees": [
+          { "initials": "JD", "name": "Jordan Davis" },
+          { "initials": "AL", "name": "Ada Lovelace" }
+        ],
+        "due": "Mar 22",
+        "tags": ["Typography"],
+        "comments": 9,
+        "attachments": 2
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Done",
+    "color": "bg-text-500/8",
+    "cards": [
+      {
+        "id": 401,
+        "title": "Color system tokens",
+        "description":
+          "Document primary, secondary, and text tokens with usage examples.",
+        "priority": "High",
+        "assignees": [{ "initials": "AL", "name": "Ada Lovelace" }],
+        "tags": ["Tokens"],
+        "comments": 5
+      },
+      {
+        "id": 402,
+        "title": "Logo mark explorations",
+        "description":
+          "20+ concepts narrowed to 3 directions for stakeholder presentation.",
+        "priority": "High",
+        "assignees": [{ "initials": "JD", "name": "Jordan Davis" }],
+        "tags": ["Logo"],
+        "attachments": 8,
+        "comments": 14
+      },
+      {
+        "id": 403,
+        "title": "Brand positioning statement",
+        "description":
+          "Craft the core brand statement and supporting messaging framework.",
+        "priority": "Med",
+        "assignees": [{ "initials": "SR", "name": "Sam Rivera" }],
+        "tags": ["Strategy"],
+        "comments": 3
+      },
+      {
+        "id": 404,
+        "title": "Competitor visual audit",
+        "description":
+          "Analyse visual language of 8 direct competitors across all brand touchpoints.",
+        "priority": "Low",
+        "assignees": [{ "initials": "AL", "name": "Ada Lovelace" }],
+        "tags": ["Research"]
+      },
+      {
+        "id": 405,
+        "title": "Moodboard & direction vote",
+        "description":
+          "Compile reference moodboards and run async team vote on direction.",
+        "priority": "Low",
+        "assignees": [{ "initials": "SR", "name": "Sam Rivera" }],
+        "tags": ["Research"],
+        "comments": 7
+      },
+      {
+        "id": 406,
+        "title": "Stakeholder kick-off deck",
+        "description":
+          "Present project scope, timeline, and deliverables to stakeholders.",
+        "priority": "Med",
+        "assignees": [{ "initials": "AL", "name": "Ada Lovelace" }],
+        "tags": ["Presentation"],
+        "attachments": 1
+      },
+      {
+        "id": 407,
+        "title": "Design principles doc",
+        "description":
+          "Write 5 core design principles that guide all visual decisions.",
+        "priority": "Low",
+        "assignees": [{ "initials": "JD", "name": "Jordan Davis" }],
+        "tags": ["Docs"],
+        "comments": 2
+      }
+    ]
+  }
+]

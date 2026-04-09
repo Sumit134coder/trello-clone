@@ -1,20 +1,19 @@
-import FormError from "./FormError";
 import FormLabel from "../ui/FormLabel";
+import FormError from "./FormError";
 
-const FormInput = ({
+const FormTextarea = ({
   label,
   inputClass,
-  optional = false,
   errorMsg,
+  optional,
   infoText,
   id,
-  containerClass,
   ...inputProps
 }) => {
   return (
-    <div className={`flex flex-col gap-2 ${containerClass}`}>
+    <div className="flex flex-col gap-2">
       {label && <FormLabel id={id} label={label} optional={optional} />}
-      <input
+      <textarea
         id={id}
         {...inputProps}
         className={`form_input input_dark ${inputClass}`}
@@ -29,4 +28,4 @@ const FormInput = ({
   );
 };
 
-export default FormInput;
+export default FormTextarea;
