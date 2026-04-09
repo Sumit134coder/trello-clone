@@ -1,17 +1,16 @@
 import React from "react";
 import ProjectListChip from "./ProjectListChip";
 
-const defaultLists = ["Backlog", "In Progress", "Review", "Done"];
 
-const ProjectListSelector = () => {
+const ProjectListSelector = ({list = [], onRemove}) => {
   return (
     <div>
       <p className="font-mono text-[0.6rem] tracking-[0.25em] uppercase text-text-500/30 mb-4">
         Default Lists
       </p>
       <div className="flex flex-wrap gap-3">
-        {defaultLists.map((list, i) => (
-          <ProjectListChip key={i} list={list} index={i} />
+        {list.map((listItem, i) => (
+          <ProjectListChip key={i} list={listItem} index={i} onRemove={onRemove} />
         ))}
 
         {/* Add list button */}

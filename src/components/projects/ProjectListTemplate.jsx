@@ -1,10 +1,11 @@
 import React from "react";
 
-const ProjectListTemplate = ({ template }) => {
+const ProjectListTemplate = ({ template, onTemplateSelect }) => {
   return (
     <button
       key={template.name}
       type="button"
+      onClick={() => onTemplateSelect(template)}
       className="flex flex-col gap-3 text-left
                       border border-text-500/10
                       hover:border-text-500/35 hover:bg-secondary-500/60

@@ -1,5 +1,5 @@
 
-const ProjectListChip = ({list , index}) => {
+const ProjectListChip = ({list , index, onRemove}) => {
   return (
     <div
       key={list}
@@ -12,6 +12,7 @@ const ProjectListChip = ({list , index}) => {
       <button
         type="button"
         aria-label={`Remove ${list} list`}
+        onClick={() => onRemove && onRemove(list)}
         className="text-text-500/20 hover:text-text-500/60 transition-colors ml-1 font-mono text-xs leading-none"
       >
         ×

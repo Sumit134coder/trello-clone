@@ -1,5 +1,4 @@
-
-const ProjectMemberCheckbox = ({member}) => {
+const ProjectMemberCheckbox = ({member, register}) => {
   return (
     <label
       key={member.initials}
@@ -39,9 +38,9 @@ const ProjectMemberCheckbox = ({member}) => {
       {/* Checkbox */}
       <input
         type="checkbox"
-        name="members"
         value={member.initials}
         aria-label={`Add ${member.name} to project`}
+        {...register("assignedMembers")}
         className="
                       w-4 h-4 shrink-0 rounded-none
                       border border-text-500/20

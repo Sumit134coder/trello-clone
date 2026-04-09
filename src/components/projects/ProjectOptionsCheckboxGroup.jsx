@@ -17,7 +17,7 @@ const projectSettingOptions = [
   },
 ];
 
-const ProjectOptionsCheckboxGroup = () => {
+const ProjectOptionsCheckboxGroup = ({ register }) => {
   return (
     <div className="flex flex-col gap-3">
       {projectSettingOptions.map((opt) => (
@@ -31,8 +31,9 @@ const ProjectOptionsCheckboxGroup = () => {
           </span>
           <input
             id={opt.id}
-            name={opt.id}
+            value={opt.id}
             type="checkbox"
+            {...register("projectOptions")}
             defaultChecked={opt.defaultChecked}
             className="
                       w-4 h-4 shrink-0 rounded-none
